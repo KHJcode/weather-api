@@ -9,8 +9,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install && node meadowlark.js"
   },
+  "engines":{
+    "node":"8.11.4"
+    },
   "author": "",
   "license": "ISC"
 }
