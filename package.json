@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "npm install && node meadowlark.js",
+    "start": "alweApi.js",
     "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
   },
   "engines":{
