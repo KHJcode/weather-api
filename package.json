@@ -9,7 +9,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "npm install && node meadowlark.js"
+    "start": "npm install && node meadowlark.js",
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
   },
   "engines":{
     "node":"12.13.0"
