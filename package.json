@@ -7,10 +7,8 @@
     "express": "^4.17.1",
     "request": "^2.88.2"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "node alweApi.js",
-    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+    "start": "node alweApi.js"
   },
   "engines":{
     "node":"12.13.1",
