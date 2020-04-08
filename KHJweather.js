@@ -96,7 +96,7 @@ app.get('/:id/:v1/:v2', (req, res) => {
             var nowHumi = html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).substring(html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')-2,html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')+1);
             var nowTemp = html.substring(html.indexOf(srcText[0])+srcText[0].length,9059).substring(0,html.substring(html.indexOf(srcText[0])+srcText[0].length,9057).indexOf(srcText[1]));
             if (nowTemp) {
-                return res.status(404).json(`현재 기온:${nowTemp}, 현재 습도:${nowHumi}, 현재 풍속:${nowWint}`);
+                return res.status(404).json(`현재 기온:${nowTemp}°C, 현재 습도:${nowHumi}, 현재 풍속:${nowWint}`);
             } else {
                 return res.status(404).json(`입력된 위도,경도의 값이 올바르지 않습니다.`);
             }
