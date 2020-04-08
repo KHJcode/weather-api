@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "alweApi.js",
+    "start": "node alweApi.js",
     "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
   },
   "engines":{
