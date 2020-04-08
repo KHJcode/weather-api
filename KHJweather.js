@@ -70,10 +70,11 @@ const express = require('express'),
     }
 
 app.get('/',  (req,res) => {
-    res.send('Hello, KHJ weather api!');
+    const pages = "<h2>Welcome to KHJ's weather api!</h2> <h3>Please leave your inquiry <a href='https://open.kakao.com/me/KHJcode'>here</a> to use this api.</h3>"
+    res.send(pages);
 });
 
-app.get('/users/:id/:v1/:v2', (req, res) => {
+app.get('/:id/:v1/:v2', (req, res) => {
     const userkey = '576520617265204461696c79436f6e2e',
         srcText =  ['<ddclass="now_weather1_centertemp1MB10">','</dd>','<dtclass="w_hour1MB5">','<ddclass="now_weather1_center">'],
         id = req.params.id,
@@ -91,9 +92,9 @@ app.get('/users/:id/:v1/:v2', (req, res) => {
             html = html.replace(/\n/gi, ''),
             html = html.replace(/\r/gi, '');
             var nowWint = html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).substring(html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('km')-5,html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('km')+4);
+            nowWint = nowWint.replace(/>/g, '');
             var nowHumi = html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).substring(html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')-2,html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')+1);
             var nowTemp = html.substring(html.indexOf(srcText[0])+srcText[0].length,9059).substring(0,html.substring(html.indexOf(srcText[0])+srcText[0].length,9057).indexOf(srcText[1]));
-            nowWint = nowWint.replace(/ϼ/gi, '');
             if (nowTemp) {
                 return res.status(404).json(`현재 기온:${nowTemp}, 현재 습도:${nowHumi}, 현재 풍속:${nowWint}`);
             } else {
@@ -105,4 +106,4 @@ app.get('/users/:id/:v1/:v2', (req, res) => {
     }
 });
 
-app.listen(PORT);
+app.listen(3000);

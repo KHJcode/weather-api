@@ -1,14 +1,14 @@
 {
-  "name": "alweapi",
+  "name": "khjweather",
   "version": "1.0.0",
   "description": "",
-  "main": "alweApi.js",
+  "main": "KHJweather.js",
   "dependencies": {
     "express": "^4.17.1",
     "request": "^2.88.2"
   },
   "scripts": {
-    "start": "node alweApi.js"
+    "start": "node KHJweather.js"
   },
   "engines":{
     "node":"12.13.1",
