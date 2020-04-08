@@ -90,6 +90,7 @@ app.get('/users/:id/:v1/:v2', (req, res) => {
             html = html.replace(/�/gi, ''),
             html = html.replace(/\n/gi, ''),
             html = html.replace(/\r/gi, '');
+            html = html.replace(/ϼ/gi, '');
             var nowWint = html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).substring(html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('km')-5,html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('km')+4);
             var nowHumi = html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).substring(html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')-2,html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')+1);
             var nowTemp = html.substring(html.indexOf(srcText[0])+srcText[0].length,9059).substring(0,html.substring(html.indexOf(srcText[0])+srcText[0].length,9057).indexOf(srcText[1]));
