@@ -1,6 +1,7 @@
 const express = require('express'),
     app = express(),
-    request = require('request');
+    request = require('request'),
+    PORT = process.env.PORT;
 
     var RE = 6371.00877,
         GRID = 5.0,
@@ -103,4 +104,4 @@ app.get('/users/:id/:v1/:v2', (req, res) => {
     }
 });
 
-app.listen(3000);
+app.listen(PORT);
