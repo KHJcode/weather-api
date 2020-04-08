@@ -13,7 +13,8 @@
     "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
   },
   "engines":{
-    "node":"12.13.0"
+    "node":"12.13.1",
+    "npm":"6.12.1"
     },
   "author": "",
   "license": "ISC"
