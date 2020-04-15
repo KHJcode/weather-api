@@ -1,7 +1,7 @@
 const express = require('express'),
     app = express(),
     request = require('request'),
-    PORT = process.env.PORT;
+    PORT = process.env.PORT || 3000;
 
     var RE = 6371.00877,
         GRID = 5.0,
@@ -74,15 +74,15 @@ app.get('/',  (req,res) => {
     res.send(pages);
 });
 
-app.get('/:id/:v1/:v2', (req, res) => {
-    const userkey = '576520617265204461696c79436f6e2e',
+app.get('/:id/:v1,:v2', (req, res) => {
+    const userkey = ['576520617265204461696c79436f6e2e'],
         srcText =  ['<ddclass="now_weather1_centertemp1MB10">','</dd>','<dtclass="w_hour1MB5">','<ddclass="now_weather1_center">'],
         id = req.params.id,
         v1 = req.params.v1,
         v2 = req.params.v2,
         rs = dfs_xy_conv('toXY',v1,v2),
         url = `https://www.weather.go.kr/weather/forecast/digital_forecast.jsp?x=${rs.x}&y=${rs.y}&unit=K`;
-    if (userkey === id) {
+    if (userkey.includes(id)) {
         request(url, function(error, response, html){
             if (error) {
                 throw error;
@@ -95,8 +95,13 @@ app.get('/:id/:v1/:v2', (req, res) => {
             nowWint = nowWint.replace(/>/g, '');
             var nowHumi = html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).substring(html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')-2,html.substring(html.indexOf(srcText[2]),html.indexOf(srcText[2])+200).indexOf('%')+1);
             var nowTemp = html.substring(html.indexOf(srcText[0])+srcText[0].length,9059).substring(0,html.substring(html.indexOf(srcText[0])+srcText[0].length,9057).indexOf(srcText[1]));
+            const values = {
+                현재_기온: `${nowTemp}`,
+                현재_습도: `${nowHumi}`,
+                현재_풍속: `${nowWint}`
+            }
             if (nowTemp) {
-                return res.status(404).json(`현재 기온:${nowTemp}, 현재 습도:${nowHumi}, 현재 풍속:${nowWint}`);
+                return res.status(404).json(values);
             } else {
                 return res.status(404).json(`입력된 위도,경도의 값이 올바르지 않습니다.`);
             }
