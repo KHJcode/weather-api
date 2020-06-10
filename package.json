@@ -9,12 +9,12 @@
   },
   "scripts": {
     "start": "node server.js",
-    "devSt": "nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "engines":{
     "node":"12.13.1",
     "npm":"6.12.1"
-    },
-  "author": "",
+  },
+  "author": "KHJcode",
   "license": "ISC"
 }
