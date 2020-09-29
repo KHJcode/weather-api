@@ -1,7 +1,7 @@
 {
-  "name": "khjweather",
+  "name": "khjweatherapi",
   "version": "2.0.0",
-  "description": "",
+  "description": "Weather API developed by KHJcode.",
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
