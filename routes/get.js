@@ -23,7 +23,7 @@ router.get('/:mode/:id/:v1/:v2', userCheck, async (req, res, next) => {
 });
 
 function userCheck(req, res, next) {
-  const userkey = ['portfolio'];
+  const userkey = ['turbo'];
 
   if (userkey.includes(req.params.id)) return next();
   return res.status(404).json('User key is not found.');
