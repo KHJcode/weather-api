@@ -2,7 +2,7 @@ const request = require('request');
 
 const srcText =  ['<ddclass="now_weather1_centertemp1MB10">','</dd>','<dtclass="w_hour1MB5">','<ddclass="now_weather1_center">'];
 
-function webParsing (url, mode) {
+function webParsing (url) {
   return new Promise((resolve, reject) => {
     try {
       request(url, function(error, response, html){
@@ -16,7 +16,7 @@ function webParsing (url, mode) {
         const data = { wisp: nowWint, humi: nowHumi, temp: nowTemp, };
         if (data) {
           if (mode === 'all') resolve(data);
-          resolve(data[mode]);
+          else resolve(data[mode]);
         }
       });
     } catch {
