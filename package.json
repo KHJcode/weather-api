@@ -4,16 +4,18 @@
   "description": "Weather API developed by KHJcode.",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^4.2.0",
     "request": "^2.88.2"
   },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "engines":{
-    "node":"12.13.1",
-    "npm":"6.12.1"
+  "engines": {
+    "node": "12.13.1",
+    "npm": "6.12.1"
   },
   "author": "KHJcode",
   "license": "ISC"

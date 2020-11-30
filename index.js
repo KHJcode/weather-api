@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const helmet = require('helmet');
+const cors = require('cors');
 
 const getRouter = require('./routes/get');
 
@@ -10,6 +12,10 @@ app.get('/', (req, res) => {
   res.status(200).json(pages);
 });
 
+app.use(cors({
+  origin: true,
+}));
+app.use(helmet());
 app.use('/get', getRouter);
 
 app.listen(app.get('port'), () => {
