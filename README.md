@@ -1,22 +1,6 @@
-KHJ WEATHER API
+Weather API
 =============
 
-Weather API developed by KHJcode.
+## 📚 Description
 
-### Project setup
-```sh
-$ npm install
-```
-
-### Development
-```sh
-$ npm run dev
-```
-
-### Only use
-```sh
-$ npm run start
-```
-
-### You can check it on the web.
-https://khjweatherapi.herokuapp.com/
+[기상청 날씨누리](https://www.weather.go.kr) 사이트를 파싱해서 온도, 습도, 풍속 데이터를 가져오는 Node.js API 입니다.
